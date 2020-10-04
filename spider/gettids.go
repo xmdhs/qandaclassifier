@@ -11,14 +11,14 @@ import (
 
 var c = http.Client{Timeout: 5 * time.Second}
 
-var cookie string
+var Cookie string
 
 func init() {
 	b, err := ioutil.ReadFile("cookie.txt")
 	if err != nil {
 		panic(err)
 	}
-	cookie = string(b)
+	Cookie = string(b)
 }
 
 func httpget(aurl string) ([]byte, error) {
@@ -28,7 +28,7 @@ func httpget(aurl string) ([]byte, error) {
 	}
 	reqs.Header.Set("Accept", "*/*")
 	reqs.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36")
-	reqs.Header.Set("Cookie", cookie)
+	reqs.Header.Set("Cookie", Cookie)
 	rep, err := c.Do(reqs)
 	if rep != nil {
 		defer rep.Body.Close()

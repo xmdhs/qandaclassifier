@@ -6,6 +6,7 @@ import (
 	"os"
 	"sync"
 
+	"github.com/xmdhs/qandaclassifier/classification"
 	"github.com/xmdhs/qandaclassifier/spider"
 )
 
@@ -53,7 +54,7 @@ func main() {
 		}
 		f.Write(b)
 	} else if len(os.Args) != 1 && os.Args[1] == "fen" {
-
+		classification.Server()
 	}
 }
 

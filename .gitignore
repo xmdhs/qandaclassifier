@@ -1,1 +1,10 @@
 tids.json
+dict/hmm_model.utf8
+dict/idf.utf8
+dict/init.go
+dict/jieba.dict.utf8
+dict/stop_words.utf8
+dict/user.dict.utf8
+cookie.txt
+.vscode/launch.json
+storage.data

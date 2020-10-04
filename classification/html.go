@@ -35,9 +35,28 @@ const (
 
 <body>
     <div class="container-lg px-3 my-5 markdown-body">
-        <p><a href="./add">分类</a></p>
-        <p><a href="./classification">评分</a></p>
+        <p><a href="/classification/add">分类</a></p>
+        <p><a href="/classification/classification">评分</a></p>
     </div>
 </body>
+</html>`
+	pinfen = `<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分类</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmdhs/searchqanda/style.css">
+</head>
+
+<body>
+    <div class="container-lg px-3 my-5 markdown-body">
+        <h1>对文本分类</h1>
+        <form action="/classification/classification" target="_blank"><input type="text" name="q"></form><br>
+    </div>
+</body>
+
 </html>`
 )

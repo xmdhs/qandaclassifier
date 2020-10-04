@@ -34,10 +34,13 @@ func fenlei(w http.ResponseWriter, r *http.Request) {
 		setcategory(pid, "灌水")
 	case `Fuifu`:
 		setcategory(pid, "回复")
+	case `Zoubian`:
+		setcategory(pid, "周边")
 	case `Tiaoguo`:
+		setcategory(pid, "跳过")
 	}
-	addtemp.i = addtemp.i - 1
-	if addtemp.i == 0 {
+	addtemp.ii = addtemp.ii + 1
+	if addtemp.i == addtemp.ii {
 		for _, v := range addtemp.temp {
 			handler.Training(v.text, v.category)
 		}

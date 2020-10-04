@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/xmdhs/qandaclassifier/spider"
 )
 
 type Post struct {
@@ -163,6 +165,7 @@ func getidinfo(tid string) (info, error) {
 			}
 			reqs.Header.Set("Accept", "*/*")
 			reqs.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36")
+			reqs.Header.Set("Cookie", spider.Cookie)
 			rep, err := c.Do(reqs)
 			if rep != nil {
 				defer rep.Body.Close()

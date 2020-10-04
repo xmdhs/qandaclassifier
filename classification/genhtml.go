@@ -9,13 +9,14 @@ import (
 func genhtml(w http.ResponseWriter, data pidinfo) {
 	g := genhtmldata{
 		Text:    data.message,
-		Yuanban: `./fenlei?=Yuanban&pid=` + data.pid,
-		Lianji:  `./fenlei?=Lianji&pid=` + data.pid,
-		Mod:     `./fenlei?=Mod&pid=` + data.pid,
-		Be:      `./fenlei?=Be&pid=` + data.pid,
-		Water:   `./fenlei?=Water&pid=` + data.pid,
-		Fuifu:   `./fenlei?=Fuifu&pid=` + data.pid,
-		Tiaoguo: `./fenlei?=Tiaoguo&pid=` + data.pid,
+		Yuanban: `./fenlei?fenlei=Yuanban&pid=` + data.pid,
+		Lianji:  `./fenlei?fenlei=Lianji&pid=` + data.pid,
+		Mod:     `./fenlei?fenlei=Mod&pid=` + data.pid,
+		Be:      `./fenlei?fenlei=Be&pid=` + data.pid,
+		Zoubian: `./fenlei?fenlei=Zoubian&pid=` + data.pid,
+		Water:   `./fenlei?fenlei=Water&pid=` + data.pid,
+		Fuifu:   `./fenlei?fenlei=Fuifu&pid=` + data.pid,
+		Tiaoguo: `./fenlei?fenlei=Tiaoguo&pid=` + data.pid,
 	}
 	err := gentemplate.ExecuteTemplate(w, "pinfenpage", g)
 	if err != nil {
@@ -40,6 +41,7 @@ type genhtmldata struct {
 	Mod     string
 	Be      string
 	Water   string
+	Zoubian string
 	Fuifu   string
 	Tiaoguo string
 }
