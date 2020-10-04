@@ -17,6 +17,7 @@ func genhtml(w http.ResponseWriter, data pidinfo) {
 		Water:   `./fenlei?fenlei=Water&pid=` + data.pid,
 		Fuifu:   `./fenlei?fenlei=Fuifu&pid=` + data.pid,
 		Tiaoguo: `./fenlei?fenlei=Tiaoguo&pid=` + data.pid,
+		Link:    `https://www.mcbbs.net/forum.php?mod=redirect&goto=findpost&pid=` + data.pid,
 	}
 	err := gentemplate.ExecuteTemplate(w, "pinfenpage", g)
 	if err != nil {
@@ -44,4 +45,5 @@ type genhtmldata struct {
 	Zoubian string
 	Fuifu   string
 	Tiaoguo string
+	Link    string
 }
