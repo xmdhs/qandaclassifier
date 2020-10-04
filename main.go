@@ -11,25 +11,32 @@ import (
 func main() {
 	if len(os.Args) != 1 {
 		w := sync.WaitGroup{}
+		suo := sync.Mutex{}
+		tids := make(map[string]bool, 0)
 		for v := range fids {
 			v := v
 			w.Add(1)
 			go func() {
 				m := spider.Fid2tids(v, 100)
-				f, err := os.Create(v + `.json`)
-				defer f.Close()
-				if err != nil {
-					panic(err)
+				suo.Lock()
+				for k := range m {
+					tids[k] = false
 				}
-				b, err := json.Marshal(m)
-				if err != nil {
-					panic(err)
-				}
-				f.Write(b)
+				suo.Unlock()
 				w.Done()
 			}()
 		}
 		w.Wait()
+		f, err := os.Create(`tids.json`)
+		defer f.Close()
+		if err != nil {
+			panic(err)
+		}
+		b, err := json.Marshal(tids)
+		if err != nil {
+			panic(err)
+		}
+		f.Write(b)
 	} else {
 
 	}
