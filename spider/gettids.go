@@ -68,9 +68,9 @@ func Getfidtids(fid, page string) ([]string, error) {
 	return tids, nil
 }
 
-func Fid2tids(fid string, endpage int) map[string]bool {
+func Fid2tids(fid string, startpage, endpage int) map[string]bool {
 	tidmap := make(map[string]bool, 0)
-	for i := 1; i < endpage; i++ {
+	for i := startpage; i < endpage; i++ {
 		time.Sleep(1 * time.Second)
 		tids, err := Getfidtids(fid, strconv.Itoa(i))
 		if err != nil {
