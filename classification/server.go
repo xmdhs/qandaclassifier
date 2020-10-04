@@ -129,7 +129,7 @@ func classification(w http.ResponseWriter, r *http.Request) {
 			e(w, "未知")
 		} else {
 			for _, v := range scores {
-				w.Write([]byte(v.Category + ": " + strconv.FormatFloat(v.Score, 'f', 5, 64) + "\n"))
+				w.Write([]byte(v.Category + ": " + strconv.FormatFloat(v.Score, 'f', 10, 64) + "\n"))
 			}
 		}
 	}
