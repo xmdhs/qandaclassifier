@@ -42,6 +42,9 @@ func fenlei(w http.ResponseWriter, r *http.Request) {
 	addtemp.ii = addtemp.ii + 1
 	if addtemp.i == addtemp.ii {
 		for _, v := range addtemp.temp {
+			if v.category == "跳过" {
+				continue
+			}
 			handler.Training(v.text, v.category)
 		}
 	}
