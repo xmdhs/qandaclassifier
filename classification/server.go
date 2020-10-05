@@ -55,6 +55,7 @@ func add(w http.ResponseWriter, r *http.Request) {
 				w.Write([]byte(`全部分类完成`))
 				return
 			}
+			time.Sleep(1 * time.Second)
 			info, err = getidinfo(tid)
 			if err != nil {
 				log.Println(err)

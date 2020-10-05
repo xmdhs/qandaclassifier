@@ -55,6 +55,8 @@ func main() {
 		f.Write(b)
 	} else if len(os.Args) != 1 && os.Args[1] == "fen" {
 		classification.Server()
+	} else if len(os.Args) != 1 && os.Args[1] == "auto" {
+		classification.Autoclassification()
 	}
 }
 
