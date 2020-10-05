@@ -158,7 +158,6 @@ func getidinfo(tid string) (info, error) {
 	for {
 		var err error
 		b, err = func() ([]byte, error) {
-			time.Sleep(1 * time.Second)
 			reqs, err := http.NewRequest("GET", `https://www.mcbbs.net/api/mobile/index.php?version=4&module=viewthread&tid=`+tid, nil)
 			if err != nil {
 				return nil, err
@@ -184,6 +183,7 @@ func getidinfo(tid string) (info, error) {
 		}()
 		if err != nil {
 			log.Println(tid, err)
+			time.Sleep(1 * time.Second)
 			continue
 		}
 		break
