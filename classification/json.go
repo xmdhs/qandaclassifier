@@ -200,6 +200,7 @@ func getidinfo(tid string) (info, error) {
 	return info{
 		tid:     postinfo.Variables.Thread.Tid,
 		message: pinfo,
+		fid:     postinfo.Variables.Thread.Fid,
 	}, nil
 }
 
@@ -227,6 +228,7 @@ func getmessage(postlist []PostVariablesPostlist) ([]pidinfo, error) {
 type info struct {
 	message []pidinfo
 	tid     string
+	fid     string
 }
 
 type pidinfo struct {
