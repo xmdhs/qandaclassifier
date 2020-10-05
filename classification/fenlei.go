@@ -64,6 +64,6 @@ var handler = classifier.NewClassifier(map[string]interface{}{
 	"storage": map[string]string{
 		"adapter":   "file",         // 存储引擎，接受 file,redis，目前只支持file
 		"path":      "storage.data", // 文件存储引擎的存储路径
-		"frequency": "20",           // 自动存储的频率, 单位: 秒，0 表示不自动存储
+		"frequency": "0",            // 自动存储的频率, 单位: 秒，0 表示不自动存储
 	},
 })
