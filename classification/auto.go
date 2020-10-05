@@ -15,7 +15,8 @@ func Autoclassification() {
 		go tid2class(k, limit, &wait)
 	}
 	wait.Wait()
-	time.Sleep(25 * time.Second)
+	close(trainingch)
+	trainingdone <- struct{}{}
 }
 
 func tid2class(tid string, limit chan struct{}, wait *sync.WaitGroup) {
@@ -47,8 +48,18 @@ func init() {
 
 var trainingch = make(chan [2]string, 20)
 
+var trainingdone = make(chan struct{})
+
 func training() {
+	var i int
 	for v := range trainingch {
 		handler.Training(v[0], v[1])
+		i++
+		if i >= 20 {
+			handler.Export()
+			i = 0
+		}
 	}
+	handler.Export()
+	<-trainingdone
 }
