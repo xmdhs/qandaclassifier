@@ -45,7 +45,7 @@ func fenlei(w http.ResponseWriter, r *http.Request) {
 			if v.category == "跳过" {
 				continue
 			}
-			handler.Training(v.text, v.category)
+			trainingch <- [2]string{v.text, v.category}
 		}
 	}
 	http.Redirect(w, r, `/classification/add`, 302)

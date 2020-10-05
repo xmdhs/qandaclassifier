@@ -15,6 +15,7 @@ func Autoclassification() {
 		go tid2class(k, limit, &wait)
 	}
 	wait.Wait()
+	time.Sleep(25 * time.Second)
 }
 
 func tid2class(tid string, limit chan struct{}, wait *sync.WaitGroup) {
@@ -29,7 +30,7 @@ func tid2class(tid string, limit chan struct{}, wait *sync.WaitGroup) {
 		log.Println(err)
 		return
 	}
-	handler.Training(info.message[0].message, fids[info.fid])
+	trainingch <- [2]string{info.message[0].message, fids[info.fid]}
 }
 
 var fids = map[string]string{
@@ -38,4 +39,16 @@ var fids = map[string]string{
 	"1566": "周边问答",
 	"431":  "联机问答",
 	"266":  "Mod问答",
+}
+
+func init() {
+	go training()
+}
+
+var trainingch = make(chan [2]string, 20)
+
+func training() {
+	for v := range trainingch {
+		handler.Training(v[0], v[1])
+	}
 }
