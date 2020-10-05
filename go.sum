@@ -3,5 +3,7 @@ github.com/huichen/sego v0.0.0-20180617034105-3f3c8a8cfacc/go.mod h1:+/Bm7uk1bnJ
 github.com/issue9/assert v1.4.1/go.mod h1:Yktk83hAVl1SPSYtd9kjhBizuiBIqUQyj+D5SE2yjVY=
 github.com/xmdhs/bayesian-classifier v0.0.0-20201004140516-9bf9e9d6d1eb h1:p5BwUd14nZscD6RhzaUd+UnY9gCu3SHC0V6XhlyuvNU=
 github.com/xmdhs/bayesian-classifier v0.0.0-20201004140516-9bf9e9d6d1eb/go.mod h1:SSonsCScbXlheSSeKScbsEcn2VIJqaAImoirW8GOkZs=
+github.com/xmdhs/bayesian-classifier v0.0.0-20201005000205-7471792e581c h1:1RMCKd8wg8VINyMwaCe/gQclF+o1vAGbU/L0nUEs79k=
+github.com/xmdhs/bayesian-classifier v0.0.0-20201005000205-7471792e581c/go.mod h1:SSonsCScbXlheSSeKScbsEcn2VIJqaAImoirW8GOkZs=
 github.com/yanyiwu/gojieba v1.1.2 h1:BMwKCwg3G+Nw/Ctqzm/gNgN/6Ljf0Y4f7ddKlzTA+TM=
 github.com/yanyiwu/gojieba v1.1.2/go.mod h1:54wkP7sMJ6bklf7yPl6F+JG71dzVUU1WigZbR47nGdY=
