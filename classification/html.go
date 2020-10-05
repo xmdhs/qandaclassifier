@@ -18,7 +18,7 @@ const (
         <p><a href="{{ .Link}}">原帖</a></p>
         <hr>
         <p><a href="{{ .Yuanban}}">原版问答</a> <a href="{{ .Lianji}}">联机问答</a> <a href="{{ .Zoubian}}">周边问答</a> <a href="{{ .Mod}}">mod问答</a> 
-        <a href="{{ .Be}}">基岩版问答</a> <a href="{{ .Water}}">灌水</a> <a href="{{ .Fuifu}}">回复</a> <a href="{{ .Tiaoguo}}">跳过</a></p>
+        <a href="{{ .Be}}">基岩版问答</a> <a href="{{ .Water}}">灌水</a> <a href="{{ .Tiaoguo}}">跳过</a></p>
     </div>
 </body>
 </html>`

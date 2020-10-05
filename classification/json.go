@@ -219,6 +219,7 @@ func getmessage(postlist []PostVariablesPostlist) ([]pidinfo, error) {
 			message: message,
 			pid:     v.Pid,
 		})
+		break
 	}
 	return p, nil
 }
