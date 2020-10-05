@@ -31,7 +31,7 @@ func main() {
 			v := v
 			w.Add(1)
 			go func() {
-				m := spider.Fid2tids(v, 1, 100)
+				m := spider.Fid2tids(v, 1, 500)
 				suo.Lock()
 				for k := range m {
 					if _, ok := tids[k]; !ok {
