@@ -156,9 +156,6 @@ func getid() {
 				break
 			}
 		}
-		if tid == "" {
-			close(tidch)
-		}
 		select {
 		case tidch <- tid:
 		case tid := <-tosave:
