@@ -29,7 +29,7 @@ func tid2class(tid string, limit chan struct{}, wait *sync.WaitGroup) {
 		log.Println(err)
 		return
 	}
-	handler.Training(info.message[0].message, fids[info.tid])
+	handler.Training(info.message[0].message, fids[info.fid])
 }
 
 var fids = map[string]string{
