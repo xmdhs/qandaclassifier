@@ -173,6 +173,9 @@ func getidinfo(tid string) (info, error) {
 			if err != nil {
 				return nil, err
 			}
+			if rep.StatusCode != 200 {
+				return nil, errors.New("not 200")
+			}
 			b, err = ioutil.ReadAll(rep.Body)
 			if err != nil {
 				return nil, err
