@@ -17,10 +17,10 @@ func init() {
 
 func Server() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/classification", index)
-	mux.HandleFunc("/classification/add", add)
-	mux.HandleFunc("/classification/fenlei", fenlei)
-	mux.HandleFunc("/classification/classification", classification)
+	mux.HandleFunc("/classification", Index)
+	mux.HandleFunc("/classification/add", Add)
+	mux.HandleFunc("/classification/fenlei", Fenlei)
+	mux.HandleFunc("/classification/classification", Classification)
 	server := http.Server{
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
@@ -39,11 +39,11 @@ type jindu struct {
 
 var tids jindu
 
-func index(w http.ResponseWriter, r *http.Request) {
+func Index(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(indexhtml))
 }
 
-func add(w http.ResponseWriter, r *http.Request) {
+func Add(w http.ResponseWriter, r *http.Request) {
 	var tid string
 	tids.RLock()
 	if tids.tid == "" {
@@ -119,7 +119,7 @@ type pidtemp struct {
 	text     string
 }
 
-func classification(w http.ResponseWriter, r *http.Request) {
+func Classification(w http.ResponseWriter, r *http.Request) {
 	q := r.URL.Query()
 	if len(q["q"]) == 0 {
 		w.Write([]byte(pinfen))

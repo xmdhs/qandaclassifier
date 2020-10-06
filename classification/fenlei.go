@@ -6,7 +6,7 @@ import (
 	"github.com/xmdhs/bayesian-classifier/classifier"
 )
 
-func fenlei(w http.ResponseWriter, r *http.Request) {
+func Fenlei(w http.ResponseWriter, r *http.Request) {
 	q := r.URL.Query()
 	if len(q["fenlei"]) == 0 || len(q["pid"]) == 0 {
 		e(w, `缺少必要参数`)
